@@ -50,14 +50,4 @@ contract('Lottery', (accounts) => {
     });
   });
 
-  describe('winner is', async ()=>{
-    it('the only member entered', async ()=>{
-      const balBeforeWinning = address(accounts[0]).balance;
-      const etherToEnterInLottery = 1000000000000000000;
-      await lottery.enter({from: account[0], value:etherToEnterInLottery});
-      await lottery.pickWinner();
-      assert.equal(address(account[0]).balance, balBeforeWinning + etherToEnterInLottery);
-    });
-  });
-
 });
